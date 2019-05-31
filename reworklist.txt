@@ -1,3 +1,10 @@
-#94 non-recursive version
-#22
-#347
+#94 https://leetcode.com/problems/binary-tree-inorder-traversal/ non-recursive version
+#22 https://leetcode.com/problems/generate-parentheses/
+#347 https://leetcode.com/problems/top-k-frequent-elements/
+#206 https://leetcode.com/problems/reverse-linked-list/
+#283 https://leetcode.com/problems/move-zeroes/
+#78 https://leetcode.com/problems/subsets/
+#169 https://leetcode.com/problems/majority-element/
+#122 https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
+#230 https://leetcode.com/problems/kth-smallest-element-in-a-bst/
+#371
