@@ -8,3 +8,13 @@
 #122 https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
 #230 https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 #371
+#454 https://leetcode.com/problems/4sum-ii/
+#56 https://leetcode.com/problems/merge-intervals/
+#287 https://leetcode.com/problems/find-the-duplicate-number/
+#240 https://leetcode.com/problems/search-a-2d-matrix-ii/
+#378 https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/
+#328
+#48 https://leetcode.com/problems/rotate-image/
+#102
+#215
+#121 https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
