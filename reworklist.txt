@@ -25,3 +25,14 @@
 #380 https://leetcode.com/problems/insert-delete-getrandom-o1/
 #75 https://leetcode.com/problems/sort-colors/
 #279 https://leetcode.com/problems/perfect-squares/
+#103 https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
+#128 https://leetcode.com/problems/longest-consecutive-sequence/
+#200 https://leetcode.com/problems/number-of-islands/
+#105 https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+#297 https://leetcode.com/problems/serialize-and-deserialize-binary-tree/
+#131 https://leetcode.com/problems/palindrome-partitioning/
+#132 https://leetcode.com/problems/palindrome-partitioning-ii/
+#198 https://leetcode.com/problems/house-robber/
+#300 https://leetcode.com/problems/longest-increasing-subsequence/
+#329 https://leetcode.com/problems/longest-increasing-path-in-a-matrix/
+#73 https://leetcode.com/problems/set-matrix-zeroes/
