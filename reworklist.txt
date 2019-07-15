@@ -36,3 +36,8 @@
 #300 https://leetcode.com/problems/longest-increasing-subsequence/
 #329 https://leetcode.com/problems/longest-increasing-path-in-a-matrix/
 #73 https://leetcode.com/problems/set-matrix-zeroes/
+#334 https://leetcode.com/problems/increasing-triplet-subsequence/submissions/
+#208 https://leetcode.com/problems/implement-trie-prefix-tree/
+#239 https://leetcode.com/problems/sliding-window-maximum/
+#116 https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
+#207 https://leetcode.com/problems/course-schedule/
