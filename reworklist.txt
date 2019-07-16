@@ -41,3 +41,6 @@
 #239 https://leetcode.com/problems/sliding-window-maximum/
 #116 https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
 #207 https://leetcode.com/problems/course-schedule/
+#236 https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
+#155 https://leetcode.com/problems/min-stack/
+#234 https://leetcode.com/problems/palindrome-linked-list/
