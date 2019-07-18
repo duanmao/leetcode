@@ -44,3 +44,7 @@
 #236 https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
 #155 https://leetcode.com/problems/min-stack/
 #234 https://leetcode.com/problems/palindrome-linked-list/
+#88 https://leetcode.com/problems/merge-sorted-array/submissions/
+#148 https://leetcode.com/problems/sort-list/
+#139 https://leetcode.com/problems/word-break/
+#210 https://leetcode.com/problems/course-schedule-ii/
