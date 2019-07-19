@@ -48,3 +48,8 @@
 #148 https://leetcode.com/problems/sort-list/
 #139 https://leetcode.com/problems/word-break/
 #210 https://leetcode.com/problems/course-schedule-ii/
+#134 https://leetcode.com/problems/gas-station/
+#227 https://leetcode.com/problems/basic-calculator-ii/
+#34 https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+#33 https://leetcode.com/problems/search-in-rotated-sorted-array/
+#55 https://leetcode.com/problems/jump-game/
