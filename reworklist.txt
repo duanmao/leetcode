@@ -53,3 +53,8 @@
 #34 https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
 #33 https://leetcode.com/problems/search-in-rotated-sorted-array/
 #55 https://leetcode.com/problems/jump-game/
+#218 https://leetcode.com/problems/the-skyline-problem/
+#79 https://leetcode.com/problems/word-search/
+#84 https://leetcode.com/problems/largest-rectangle-in-histogram/
+#2
+#76 https://leetcode.com/problems/minimum-window-substring/
