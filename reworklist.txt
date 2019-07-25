@@ -63,3 +63,6 @@
 #124 https://leetcode.com/problems/binary-tree-maximum-path-sum/
 #152 https://leetcode.com/problems/maximum-product-subarray/
 #204 https://leetcode.com/problems/count-primes/submissions/
+#41 https://leetcode.com/problems/first-missing-positive/
+#463 https://leetcode.com/problems/island-perimeter/
+#3 https://leetcode.com/problems/longest-substring-without-repeating-characters/
