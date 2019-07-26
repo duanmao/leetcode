@@ -66,3 +66,7 @@
 #41 https://leetcode.com/problems/first-missing-positive/
 #463 https://leetcode.com/problems/island-perimeter/
 #3 https://leetcode.com/problems/longest-substring-without-repeating-characters/
+#324 https://leetcode.com/problems/wiggle-sort-ii/
+#138 https://leetcode.com/problems/copy-list-with-random-pointer/
+#140
+#4 https://leetcode.com/problems/median-of-two-sorted-arrays/
