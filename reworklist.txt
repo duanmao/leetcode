@@ -70,3 +70,8 @@
 #138 https://leetcode.com/problems/copy-list-with-random-pointer/
 #140
 #4 https://leetcode.com/problems/median-of-two-sorted-arrays/
+#146 https://leetcode.com/problems/lru-cache/
+#179 https://leetcode.com/problems/largest-number/
+#98
+#10 https://leetcode.com/problems/regular-expression-matching/
+#15 https://leetcode.com/problems/3sum/
