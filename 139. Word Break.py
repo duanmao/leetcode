@@ -10,6 +10,17 @@ class Solution:
                     break
         return f[len(s)]
 
+class Solution:
+    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        n = len(s)
+        f = [True] + [False] * n
+        for i in range(n):
+            for j in range(i + 1, n + 1):
+                w = s[i:j]
+                if (f[i] and w in wordDict):
+                    f[j] = True
+        return f[n]
+
 # Time: O(nm) where m is the size of the dict, space: O(n)
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:

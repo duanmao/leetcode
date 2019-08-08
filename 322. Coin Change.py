@@ -11,8 +11,7 @@ class Solution:
         f[0] = 0
         for coin in coins:
             for i in range(coin, amount + 1):
-                if (i - coin >= 0 and f[i - coin] < float('inf')):
-                    f[i] = min(f[i], f[i - coin] + 1)
+                f[i] = min(f[i], f[i - coin] + 1)
         return f[amount] if f[amount] < float('inf') else -1
 
 class Solution:
