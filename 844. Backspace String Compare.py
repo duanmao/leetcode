@@ -1,4 +1,19 @@
 # Time: O(n), space: O(1)
+import itertools
+class Solution:
+    def backspaceCompare(self, S: str, T: str) -> bool:
+        def process(s):
+            skip = 0
+            for i in range(len(s))[::-1]:
+                if s[i] == '#':
+                    skip += 1
+                elif skip:
+                    skip -= 1
+                else:
+                    yield s[i]
+
+        return all(x == y for x, y in itertools.zip_longest(process(S), process(T)))
+
 class Solution:
     def backspaceCompare(self, S: str, T: str) -> bool:
         i, j = len(S) - 1, len(T) - 1

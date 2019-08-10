@@ -17,3 +17,6 @@ class Solution:
                 if (len(assigned) == n):
                     return assign
         return assign
+
+# If the distance range cannot be determined:
+# https://leetcode.com/problems/campus-bikes/discuss/303906/Python-heap-of-closest-bike-to-each-worker
