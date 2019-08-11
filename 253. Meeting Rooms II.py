@@ -26,6 +26,19 @@ class Solution:
                 rooms += 1 # we need to open a new room
         return rooms
 
+# track room changes along time order
+class Solution:
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+        rooms = [(s, 1) for s, e in intervals]
+        rooms.extend([(e, -1) for s, e in intervals])
+        rooms.sort()
+        rcount = maxroom = 0
+        for t, r in rooms:
+            rcount += r
+            maxroom = max(maxroom, rcount)
+        return maxroom
+
+# Heap
 class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
         if (not intervals): return 0
