@@ -2,21 +2,21 @@
 # Time: O(n), space: O(n)
 class Solution:
     def removeStones(self, stones: List[List[int]]) -> int:
-        parents = {}
+        parent = {}
         self.islands = 0
         
         def find(x):
-            if (x not in parents):
-                parents[x] = x
+            if (x not in parent):
+                parent[x] = x
                 self.islands += 1
-            if (not x == parents[x]):
-                parents[x] = find(parents[x])
-            return parents[x]
+            if (not x == parent[x]):
+                parent[x] = find(parent[x])
+            return parent[x]
         
         def union(x1, x2):
             px1, px2 = find(x1), find(x2)
             if (not px1 == px2):
-                parents[px1] = px2
+                parent[px1] = px2
                 self.islands -= 1
                 
         for x, y in stones:
