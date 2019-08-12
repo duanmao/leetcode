@@ -27,6 +27,19 @@ class Solution:
 # generalize to all kinds of inputs, but TLE in python for this case
 class Solution:
     def splitArray(self, nums: List[int], m: int) -> int:
+        n = len(nums)
+        # f[i + 1][j]: the min subarray sum for nums[0-i] split to j arrays
+        f = [[0] * (m + 1)] + [[float('inf')] * (m + 1) for i in range(n)]
+        for i in range(1, n + 1):
+            for j in range(1, m + 1):
+                cursum = nums[i - 1]
+                for k in range(i)[::-1]:
+                    f[i][j] = min(f[i][j], max(f[k][j - 1], cursum))
+                    cursum += nums[k - 1]
+        return f[n][m]
+
+class Solution:
+    def splitArray(self, nums: List[int], m: int) -> int:
         def dp(sums, memo, start, m):
             if (m == 1): return sums[start]
             if (memo[m][start] > 0): return memo[m][start]
