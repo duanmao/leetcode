@@ -22,6 +22,26 @@ class Solution:
                 low = mid + 1
         return low
 
+class Solution:
+    def splitArray(self, nums: List[int], m: int) -> int:
+        def split(tsum):
+            k = 1
+            subsum = 0
+            for num in nums:
+                subsum += num
+                if (subsum > tsum):
+                    k += 1
+                    subsum = num
+            return k
+        
+        low, high = max(nums), sum(nums)
+        while (low < high):
+            mid = (low + high) // 2
+            k = split(mid)
+            if (k > m): low = mid + 1
+            else: high = mid
+        return high
+
 # Time: O(mn^2), space: O(mn)
 # DP
 # generalize to all kinds of inputs, but TLE in python for this case

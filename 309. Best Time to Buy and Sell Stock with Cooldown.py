@@ -27,3 +27,7 @@ class Solution:
             cooldownsell = sell
             sell = max(sell, buy + price)
         return sell
+
+# for further explanation or thinking process:
+# https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/discuss/75928/Share-my-DP-solution-(By-State-Machine-Thinking)
+# https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/discuss/75931/Easiest-JAVA-solution-with-explanations

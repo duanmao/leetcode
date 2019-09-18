@@ -33,6 +33,12 @@ class Solution:
         
         def pickBestWord(wordlist):
             if (not wordlist): return "" # just a safety check
+            # count occurrances of each letter at each position, which essentially tells us how
+            # often each character appears at each position. then we can score every word in
+            # the list with this information, in order to find the word that has the most "frequent"
+            # constituents overall (gives the max score when summing up each of its char's total
+            # occurences at that position), thus it captures the most similarity across all the
+            # words in the list, and will eliminate the most of the unmatched words in a query
             count = [[0] * 26 for i in range(len(wordlist[0]))]
             for word in wordlist:
                 for i, c in enumerate(word):

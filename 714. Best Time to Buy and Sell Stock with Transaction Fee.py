@@ -1,3 +1,6 @@
+# for a summary of "best time to buy and sell stock xxx" problem series and their general approach:
+# https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/discuss/108870/Most-consistent-ways-of-dealing-with-the-series-of-stock-problems
+
 # https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/discuss/108871/2-solutions-2-states-DP-solutions-clear-explanation!
 # Time: O(n), space: O(n)
 class Solution:

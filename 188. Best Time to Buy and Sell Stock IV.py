@@ -56,6 +56,28 @@ class Solution:
             else: break
         return maxprof
 
+# DP: https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/discuss/54113/a-concise-dp-solution-in-java
+# Time: O(nk), space: O(k)
+# however I cannot clearly fathom why my implementation below works... sigh
+class Solution:
+    def maxProfit(self, k: int, prices: List[int]) -> int:
+        if (not prices): return 0
+        n = len(prices)
+        if (k >= n // 2):
+            buy, sell = -prices[0], 0
+            for i, price in enumerate(prices):
+                buy = max(buy, sell - price)
+                sell = max(sell, buy + price)
+            return sell
+
+        buy = [float('-inf')] * (k + 1)
+        sell = [0] * (k + 1)
+        for i, price in enumerate(prices):
+            for t in range(1, k + 1): # transactions loop must be the inside loop in this implementation
+                buy[t] = max(buy[t], sell[t - 1] - price)
+                sell[t] = max(sell[t], buy[t] + price)
+        print(buy, sell)
+        return sell[k]
 
 # Time: O(nk), space: O(nk)
 # https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/discuss/54113/A-Concise-DP-Solution-in-Java

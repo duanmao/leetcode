@@ -12,3 +12,13 @@ class Solution:
                     profit += prices[i] - prices[bought]
                     bought = -1
         return profit
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        if (not prices): return 0
+        buy = -prices[0]
+        sell = 0
+        for i, price in enumerate(prices):
+            buy = max(buy, sell - price)
+            sell = max(sell, buy + price)
+        return sell
