@@ -5,16 +5,16 @@ class Solution:
     def shortestWay(self, source: str, target: str) -> int:
         def idx(c):
             return ord(c) - ord('a')
-        
+
         n = len(source)
-        # indices[l][c]: starting from pos l, the first occurance of char c
+        # indices[l][c]: starting from pos l, the first occurrence of char c
         indices = [[-1] * 26 for i in range(n)]
         for i in range(n)[::-1]:
             if (i < n - 1): indices[i] = indices[i + 1][:]
             indices[i][idx(source[i])] = i
         pos = 0
         use = 1
-        for i, c in enumerate(target):
+        for c in target:
             if (indices[0][idx(c)] == -1): return -1
             if (pos >= n or indices[pos][idx(c)] == -1):
                 use += 1
@@ -44,17 +44,29 @@ class Solution:
             pre = binarys(indices[c], pre)
             if (pre == -1):
                 use += 1
-                pre = binarys(indices[c], pre)
+                pre = indices[c][0]
             # or use built-in bisect
-            # gt = bisect.bisect(indices[c], pre)
-            # if (gt == len(indices[c])):
+            # nxt = bisect.bisect(indices[c], pre)
+            # if (nxt == len(indices[c])):
             #     use += 1
-            #     gt = bisect.bisect(indices[c], -1)
-            # pre = indices[c][gt]
+            #     nxt = 0
+            # pre = indices[c][nxt]
         return use
 
 # Time: O(mn) where m is the length of target, n is the length of source
 # Space: O(1)
+class Solution:
+    def shortestWay(self, source: str, target: str) -> int:
+        cur = 0
+        lens = len(source)
+        for i, c in enumerate(target):
+            last = cur
+            while cur < last + lens and c != source[cur % lens]:
+                cur += 1
+            if (cur == last + lens): return -1
+            cur += 1
+        return cur // lens + bool(cur % lens)
+
 class Solution:
     def shortestWay(self, source: str, target: str) -> int:
         ptr_t = 0
@@ -81,7 +93,7 @@ class Solution:
                 if (indices[c][i] == -1): indices[c][i] = indices[c][i + 1]
         pre = -1
         use = 1
-        for i, c in enumerate(target):
+        for c in target:
             if (c not in indices): return -1
             pos = indices[c][pre]
             if (pos < pre):

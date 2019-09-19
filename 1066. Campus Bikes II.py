@@ -8,7 +8,7 @@ class Solution:
         def distance(w, b):
             return abs(b[0] - w[0]) + abs(b[1] - w[1])
 
-        heap = [(0, 0, 0)] # accumulated distance, assigning worker, bikes assignment states
+        heap = [(0, 0, 0)] # accumulated distance, worker to assign, bikes assignment states
         visited = set()
         while (True):
             dis, wi, states = heapq.heappop(heap)
@@ -37,18 +37,18 @@ class Solution:
             return abs(b[0] - w[0]) + abs(b[1] - w[1])
 
         m, n = len(workers), len(bikes)
-        mindis = float('inf')
         # f[i][s] = the min distance for first i workers to build the state s
         f = [[float('inf')] * (1 << n) for i in range(m + 1)]
-        f[0][0] = 0
+        f[0][0] = 0 # initialization
         for i in range(1, m + 1):
             for s in range(1 << n):
+                if f[i - 1][s] == float('inf'): continue # invalid state
                 for j, b in enumerate(bikes):
-                    if (s & (1 << j)): continue
+                    if (s & (1 << j)): continue # bike is already assigned
                     sn = s | (1 << j)
                     f[i][sn] = min(f[i][sn], f[i - 1][s] + distance(workers[i - 1], b))
         return min(f[m])
-        
+
 # TLE - Brute force DFS
 # Time: O(m * n!), m is number of workers, n is number of bikes
 class Solution:

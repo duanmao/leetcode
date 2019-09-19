@@ -5,6 +5,12 @@ class Solution:
 
 class Solution:
     def licenseKeyFormatting(self, S: str, K: int) -> str:
+        S = S.replace('-', '').upper()
+        segments = [S[max(0, i-K):i] for i in range(len(S), 0, -K)]
+        return "-".join(segments[::-1])
+
+class Solution:
+    def licenseKeyFormatting(self, S: str, K: int) -> str:
         S = S.upper().replace('-', '')
         n = len(S)
         groups = [S[i-K+1:i+1] for i in range(n)[::-K]]
