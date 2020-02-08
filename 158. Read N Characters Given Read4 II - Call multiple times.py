@@ -37,3 +37,24 @@ class Solution:
             if (rd < 4):
                 break
         return ptr
+
+class Solution:
+    def __init__(self):
+        self.left = []
+
+    def read(self, buf, n):
+        """
+        :type buf: Destination buffer (List[str])
+        :type n: Number of characters to read (int)
+        :rtype: The number of actual characters read (int)
+        """
+        while len(self.left) < n:
+            buf4 = [''] * 4
+            l = read4(buf4)
+            self.left.extend([c for c in buf4 if c])
+            if (l < 4): break
+        l = min(n, len(self.left))
+        for i in range(l):
+            buf[i] = self.left[i]
+        self.left = self.left[n:]
+        return l

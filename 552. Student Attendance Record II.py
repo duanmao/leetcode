@@ -15,7 +15,7 @@ class Solution:
         # 2. adding 'PL' => f[i - 2]
         #       note that we cannot add 'LL' here because that will
         #       demand the control of the previous letter to be only 'P'
-        #       instead of having free choices, which invalidates the derivation from f[i - 1]
+        #       instead of having free choices, which invalidates the derivation from f[i - 2]
         # 3. adding 'PLL' => f[i - 3]
         f = [1, 2, 4] + [0] * (n - 2)
         for i in range(3, n + 1):

@@ -16,9 +16,23 @@ class Solution:
 
 class Solution:
     def expand(self, S: str) -> List[str]:
-        A = S.replace('}', '{').split('{')
-        # print(A)
-        B = [sorted(a.split(',')) for a in A]
-        # print(B)
-        # print(list(itertools.product(*B)))
-        return [''.join(c) for c in itertools.product(*B)]
+        groups = S.replace('}', '{').split('{')
+        groups = [group.split(',') for group in groups]
+        return sorted(map("".join, itertools.product(*groups)))
+
+class Solution:
+    def expand(self, S: str) -> List[str]:
+        groups = []
+        group = []
+        cur = ""
+        for i, c in enumerate(S):
+            if c not in {'{', '}', ','}:
+                cur += c 
+            if c in {'{', '}', ','} or i == len(S) - 1:
+                if cur: group.append(cur)
+                cur = ""
+                if c in {'{', '}'} or i == len(S) - 1:
+                    if group:
+                        groups.append(group)
+                    group = []
+        return sorted(map("".join, itertools.product(*groups)))

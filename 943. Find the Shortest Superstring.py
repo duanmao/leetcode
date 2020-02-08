@@ -66,13 +66,8 @@ class Solution:
                             pre[newS][i] = (s, j)
         
         # find the last word and reconstruct path
-        maxOverlapLen = maxOverlap[totalStates - 1][0]
-        cur = (totalStates - 1, 0)
-        for i in range(1, n):
-            # also check = is important here for the same reason as above
-            if (maxOverlap[totalStates - 1][i] >= maxOverlapLen):
-                maxOverlapLen = maxOverlap[totalStates - 1][i]
-                cur = (totalStates - 1, i)
+        maxOverlapLen = max(maxOverlap[totalStates - 1])
+        cur = (totalStates - 1, maxOverlap[totalStates - 1].index(maxOverlapLen))
         nxt = -1
         res = ""
         while (True):

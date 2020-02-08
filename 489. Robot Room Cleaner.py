@@ -1,6 +1,8 @@
 # https://leetcode.com/problems/robot-room-cleaner/discuss/151942/Java-DFS-Solution-with-Detailed-Explanation-and-6ms-(99)-Solution
 # https://leetcode.com/problems/robot-room-cleaner/discuss/153530/DFS-Logical-Thinking
 # https://leetcode.com/problems/robot-room-cleaner/discuss/150132/Very-clear-Python-DFS-code-beat-99-%2B
+# https://en.wikipedia.org/wiki/Maze_solving_algorithm#Wall_follower
+
 # """
 # This is the robot's control interface.
 # You should not implement it, or speculate about its implementation
