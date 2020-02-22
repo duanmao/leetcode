@@ -8,7 +8,6 @@ class TicTacToe:
         """
         self.n = n
         self.row, self.col, self.diag, self.antidiag = [0] * n, [0] * n, 0, 0
-        
 
     def move(self, row: int, col: int, player: int) -> int:
         """
@@ -24,9 +23,10 @@ class TicTacToe:
         p = player * 2 - 3 # player1: -1, player2: 1
         self.row[row] += p
         self.col[col] += p
-        if row + col == self.n - 1: self.antidiag += p
         if row == col: self.diag += p
-        if self.n * p in [self.row[row], self.col[col], self.diag, self.antidiag]: return player
+        if row + col == self.n - 1: self.antidiag += p
+        if p * self.n in [self.row[row], self.col[col], self.diag, self.antidiag]:
+            return player
         return 0
 
 

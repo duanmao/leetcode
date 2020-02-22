@@ -1,5 +1,54 @@
 # dictionary + double linked list
 # both operations take O(1)
+class LRUCache:
+
+    def __init__(self, capacity: int):
+        self.limit = capacity
+        self.head = Node(0, 0, None, None)
+        self.tail = Node(0, 0, self.head, None)
+        self.head.next = self.tail
+        self.cache = {}
+
+    def get(self, key: int) -> int:
+        if key in self.cache:
+            val = self.cache[key].val
+            self.__remove(key)
+            self.__add(key, val)
+            return val
+        return -1
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.cache:
+            self.__remove(key)
+        self.__add(key, value)
+
+    def __add(self, key, val):
+        if len(self.cache) >= self.limit:
+            self.__remove(self.tail.prev.key)
+        node = Node(key, val, self.head, self.head.next)
+        self.cache[key] = self.head.next = node.next.prev = node #
+
+    def __remove(self, key):
+        if key in self.cache:
+            node = self.cache[key]
+            node.prev.next = node.next
+            node.next.prev = node.prev
+            del self.cache[key]
+
+class Node:
+    def __init__(self, key, val, prev, nxt):
+        self.key = key
+        self.val = val
+        self.prev = prev
+        self.next = nxt
+
+# Your LRUCache object will be instantiated and called as such:
+# obj = LRUCache(capacity)
+# param_1 = obj.get(key)
+# obj.put(key,value)
+
+
+
 class Node:
     def __init__(self, key, val, prev, nxt):
         self.key = key
