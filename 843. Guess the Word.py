@@ -9,6 +9,8 @@
 #        :rtype int
 #        """
 
+# https://leetcode.com/problems/guess-the-word/discuss/133862/Random-Guess-and-Minimax-Guess-with-Comparison
+
 # random a word as the picked one is obviously much faster (O(1)), but with lower hit rate
 # use pickLeastMatchWord is much slower (O(n^2)), but it hit the target almost every time
 # pickBestWord also nailed it almost every time, and it's a lot faster (O(n))

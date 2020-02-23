@@ -1,22 +1,16 @@
 # Time: O(n), space: O(1)
-class Solution(object):
-    def canCompleteCircuit(self, gas, cost):
-        """
-        :type gas: List[int]
-        :type cost: List[int]
-        :rtype: int
-        """
-        total = left = 0
+class Solution:
+    def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
+        total = tank = 0
         start = 0
         for i in range(len(gas)):
             total += gas[i] - cost[i]
-            left += gas[i] - cost[i]
-            if (left < 0):
-                left = 0
+            tank += gas[i] - cost[i]
+            if tank < 0:
+                tank = 0
                 start = i + 1
         return start if total >= 0 else -1
 
-# Time: O(n), space: O(1)
 class Solution(object):
     def canCompleteCircuit(self, gas, cost):
         """
@@ -30,7 +24,7 @@ class Solution(object):
         n = len(gas)
         for i in range(n):
             left += gas[i] - cost[i]
-            if (bottleneck > left):
+            if bottleneck > left:
                 bottleneck = left
                 start = i + 1
         return start % n if left >= 0 else -1
