@@ -4,6 +4,9 @@
 #     def __init__(self, x):
 #         self.val = x
 #         self.next = None
+
+# only work under python2
+# for python3, need to add something else to break tie, e.g. index
 from heapq import *
 class Solution(object):
     def mergeKLists(self, lists):
@@ -14,10 +17,27 @@ class Solution(object):
         hp = [(head.val, head) for head in lists if head]
         heapify(hp)
         head = cur = ListNode(0)
-        while (len(hp)):
+        while hp:
             node = hp[0][1]
-            if (node.next):
+            if node.next:
                 heapreplace(hp, (node.next.val, node.next))
+            else:
+                heappop(hp)
+            cur.next = node
+            cur = cur.next
+        return head.next
+
+# For python3
+from heapq import *
+class Solution:
+    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+        hp = [(head.val, i, head) for i, head in enumerate(lists) if head]
+        heapify(hp)
+        head = cur = ListNode(0)
+        while hp:
+            val, i, node = hp[0]
+            if node.next:
+                heapreplace(hp, (node.next.val, i, node.next))
             else:
                 heappop(hp)
             cur.next = node

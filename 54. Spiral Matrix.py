@@ -1,3 +1,25 @@
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        if not matrix or not matrix[0]: return []
+        res = []
+        m, n = len(matrix), len(matrix[0])
+        up, down, left, right = 0, m - 1, 0, n - 1
+        while len(res) < m * n:
+            for j in range(left, right + 1):
+                res.append(matrix[up][j])
+            for i in range(up + 1, down + 1):
+                res.append(matrix[i][right])
+            if len(res) < m * n: # handle possible duplicates
+                for j in range(right - 1, left - 1, -1):
+                    res.append(matrix[down][j])
+                for i in range(down - 1, up, -1):
+                    res.append(matrix[i][left])
+            left += 1
+            right -= 1
+            up += 1
+            down -= 1
+        return res
+
 # using 4 pointers is much easier than using for loop and getting lost in deciding the ranges
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:

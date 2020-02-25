@@ -27,28 +27,22 @@ class Solution:
 # Time: O(v + e), space: O(v + e)
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        def Circle(courses, cur, visited):
-            if (visited[cur] == 1):
-                # visited along the path
-                return True
-            if (visited[cur] == 2):
-                # Has been visited before for other paths
+        graph = [[] for i in range(numCourses)]
+        for course, pre in prerequisites:
+            graph[pre].append(course)
+        visited = [0] * numCourses
+
+        def hasCycle(cur):
+            if visited[cur] == 2: # visited
                 return False
+            elif visited[cur] == 1: # visiting
+                return True
             visited[cur] = 1
-            for i in courses[cur]:
-                if (Circle(courses, i, visited)):
-                    return True
+            for v in graph[cur]:
+                if hasCycle(v): return True
             visited[cur] = 2
             return False
-        
-        dict = [[] for i in range(numCourses)] 
-        for course, pre in prerequisites:
-            dict[course].append(pre)
 
-        visited = [0] * numCourses
-        for i, pres in enumerate(dict):
-            if (len(pres)):
-                if (not visited[i] and Circle(dict, i, visited)):
-                    return False
-                
+        for v in range(numCourses):
+            if hasCycle(v): return False
         return True
