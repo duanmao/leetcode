@@ -1,17 +1,13 @@
 # Time: O(n), space: O(n)
-class Solution(object):
-    def isValid(self, s):
-        """
-        :type s: str
-        :rtype: bool
-        """
+class Solution:
+    def isValid(self, s: str) -> bool:
         stack = []
-        match = {'}': '{', ']': '[', ')': '('}
+        valid = {'()', '[]', '{}'}
         for c in s:
-            if (c in ['{', '[', '(']):
+            if c in {'(', '[', '{'}:
                 stack.append(c)
             else:
-                if (len(stack) and stack[-1] == match[c]):
+                if stack and stack[-1] + c in valid:
                     stack.pop()
                 else:
                     return False
