@@ -1,4 +1,28 @@
-# 
+# Binary Search + hashset
+# Time: O(nlogn), space: O(n^2)
+# MLE
+class Solution:
+    def longestDupSubstring(self, S: str) -> str:
+        n = len(S)
+        def check(l):
+            seen = set()
+            for i in range(n - l + 1): #
+                cur = S[i:i + l]
+                if cur not in seen: seen.add(cur)
+                else: return cur
+            return None
+
+        low, high = 1, n
+        res = ""
+        while low <= high:
+            midL = (low + high) // 2
+            ds = check(midL)
+            if ds:
+                low = midL + 1
+                res = ds
+            else:
+                high = midL - 1
+        return res
 
 # DP
 # Time: O(n^2), space: O(n^2)

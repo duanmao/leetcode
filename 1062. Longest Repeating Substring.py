@@ -1,3 +1,26 @@
+# https://leetcode.com/articles/longest-repeating-substring/
+# Binary search + set
+# Time: O(nlogn), space: O(n^2)
+class Solution:
+    def longestRepeatingSubstring(self, S: str) -> int:
+        n = len(S)
+        def check(l):
+            seen = set()
+            for i in range(n - l + 1): #
+                cur = S[i:i + l]
+                if cur not in seen: seen.add(cur)
+                else: return True
+            return False
+        
+        low, high = 1, n
+        while low <= high:
+            midL = (low + high) // 2
+            if check(midL):
+                low = midL + 1
+            else:
+                high = midL - 1
+        return high
+
 # DP
 # Time: O(n ^ 2), space: O(n^2)
 class Solution:

@@ -4,6 +4,22 @@
 # https://leetcode.com/problems/trapping-rain-water/solution/ Approach 4
 class Solution:
     def trap(self, height: List[int]) -> int:
+        lmax = rmax = 0
+        li, ri = 0, len(height) - 1
+        water = 0
+        while li < ri:
+            lmax = max(lmax, height[li])
+            rmax = max(rmax, height[ri])
+            if lmax < rmax:
+                water += lmax - height[li]
+                li += 1
+            else:
+                water += rmax - height[ri]
+                ri -= 1
+        return water
+
+class Solution:
+    def trap(self, height: List[int]) -> int:
         left, right = 0, len(height) - 1
         lmax = rmax = 0
         water = 0
