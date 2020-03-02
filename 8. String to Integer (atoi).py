@@ -1,5 +1,26 @@
 class Solution:
     def myAtoi(self, str: str) -> int:
+        def parse(s):
+            num = 0
+            for c in s:
+                if c.isdigit(): num = num * 10 + int(c)
+                else: break
+            return num
+
+        str = str.strip()
+        if not str: return 0
+        if not str[0].isdigit() and str[0] not in {'-', '+'}: return 0
+        if str[0].isdigit():
+            return min(2**31 - 1, parse(str))
+        else:
+            num = parse(str[1:])
+            if str[0] == '-':
+                return max(-2**31, -num)
+            else:
+                return min(2**31 - 1, num)
+
+class Solution:
+    def myAtoi(self, str: str) -> int:
         str = str.strip()
         if (not str): return 0
         neg = False
