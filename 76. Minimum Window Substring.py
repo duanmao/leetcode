@@ -1,31 +1,24 @@
 # Time: O(n), space: O(1)
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
-        dicT = [0] * 256
-        dicS = [0] * 256
-        for c in t:
-            dicT[ord(c)] += 1
-        start = end = 0
+        dicT, dicS = collections.defaultdict(int), collections.defaultdict(int)
+        for c in t: dicT[c] += 1
+        win = ""
+        start = 0
         matched = 0
-        wlen = float('inf')
-        wd = ""
-        while (end < len(s)):
-            dicS[ord(s[end])] += 1
-            if (dicS[ord(s[end])] <= dicT[ord(s[end])]):
-                matched += 1
-            end += 1
-            if (matched == len(t)):
-                while (matched == len(t)):
-                    dicS[ord(s[start])] -= 1
-                    if (dicS[ord(s[start])] < dicT[ord(s[start])]):
-                        matched -= 1
-                    start += 1
-                if (end - start + 1 < wlen):
-                    wlen = end - start + 1
-                    wd = s[start-1:end]
-        return wd
+        for i, c in enumerate(s):
+            dicS[c] += 1
+            if dicS[c] <= dicT[c]: matched += 1
+            if matched < len(t):
+                continue
+            while matched == len(t):
+                dicS[s[start]] -= 1
+                if dicS[s[start]] < dicT.get(s[start]): matched -= 1
+                start += 1
+            if not win or i - start + 2 < len(win):
+                win = s[start - 1:i + 1]
+        return win
 
-# shorter but essentially the same version:
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
         tomatch = [0]* 256
@@ -45,3 +38,25 @@ class Solution:
                 if (not window or end - start < len(window)):
                     window = s[start:end]
         return window
+
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        dicT = collections.defaultdict(int)
+        for c in t: dicT[c] += 1
+        win = ""
+        dicS = collections.defaultdict(int)
+        start = 0
+        count = 0
+        for i, c in enumerate(s):
+            if c in dicT:
+                dicS[c] += 1
+                if dicS[c] == dicT[c]: count += 1
+            if count < len(dicT):
+                continue
+            while count == len(dicT):
+                dicS[s[start]] -= 1
+                if s[start] in dicT and dicS[s[start]] < dicT[s[start]]: count -= 1
+                start += 1
+            if not win or i - start + 2 < len(win):
+                win = s[start - 1:i + 1]
+        return win

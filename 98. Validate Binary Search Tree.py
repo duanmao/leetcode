@@ -26,7 +26,7 @@ class Solution:
 #         self.left = None
 #         self.right = None
 
-# Time: O(log(n)), space: O(1)
+# Time: O(n), space: O(1)
 class Solution:
     def isValidBST(self, root: TreeNode) -> bool:
         def isValid(node, vmin, vmax):

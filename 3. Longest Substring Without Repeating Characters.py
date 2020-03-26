@@ -12,6 +12,24 @@ class Solution:
             maxl = max(maxl, i - start  + 1)
         return maxl
 
+import collections
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        repeated = collections.defaultdict(bool)
+        start = 0
+        maxlen = 0
+        for i, c in enumerate(s):
+            if not repeated[c]:
+                repeated[c] = True
+                continue
+            maxlen = max(maxlen, i - start)
+            while repeated[c]:
+                repeated[s[start]] = False
+                start += 1
+            repeated[c] = True # remember to mark the current char
+        maxlen = max(maxlen, len(s) - start)
+        return maxlen
+
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         mark = [False] * 256
