@@ -17,7 +17,7 @@ class Solution:
                 if nb == pre: continue # skip the current vertex's parent (where it comes from)
                 nextrk = dfs(v, nb, rk + 1)
                 ranks[v] = min(ranks[v], nextrk)
-                if nextrk >= rk + 1: # not further cycle found for this neighbor
+                if nextrk >= rk + 1: # no further cycle found for this neighbor
                     criticals.append([v, nb])
             return ranks[v]
         

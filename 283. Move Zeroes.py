@@ -1,3 +1,29 @@
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        j = 0
+        for i, num in enumerate(nums):
+            if num != 0:
+                if i != j: nums[j] = num
+                j += 1
+        for i in range(j, len(nums)):
+            if nums[i] != 0: nums[i] = 0
+
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        j = 0
+        for i, num in enumerate(nums):
+            if num != 0:
+                if i != j:
+                    nums[j] = num
+                    nums[i] = 0
+                j += 1
+
 # 在看了别的答案后，这个方法对于处理这题来说明显是overkill了
 # 更适合这题的方法见C++
 # 维护两个指针，均从左往右，第一个先走，寻找为零的元素

@@ -5,20 +5,20 @@ class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         res = []
         dq = deque() # must store index instead of its value
-        for i in range(len(nums)):
+        for i, num in enumerate(nums):
             # check whether the leftmost element still stays inside the window or not
             # if it has been slided out, it should be removed
-            if (len(dq) and dq[0] <= i - k): dq.popleft()
+            if dq and dq[0] <= i - k: dq.popleft()
             # check whether the numbers come later are promising to be the max in the window or not
             # if they are smaller than the element that we're going to add, they are impossible to
             # be selected as the maximum within the window since this current element num[i] would
             # always overshadow them. Thus they should be removed
-            while (len(dq) and nums[dq[-1]] <= nums[i]): dq.pop()
+            while dq and nums[dq[-1]] <= nums[i]: dq.pop()
             dq.append(i)
             # since the promising numbers are stored sequentially according to their relative order
             # in the given array, and in descending order in terms of their values, the first
             # element must be the correct choice for the current window
-            if (i >= k - 1): res.append(nums[dq[0]])
+            if i >= k - 1: res.append(nums[dq[0]])
         return res
 
 # Time: O(n), space: O(k)
