@@ -56,3 +56,24 @@ class Solution:
                         if 0 <= ni < m and 0 <= nj < n and grid[ni][nj] == '1':
                             union(i * n + j, ni * n + nj)
         return self.count
+
+# DFS
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        if not grid: return 0
+        move = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+        islands = 0
+        m, n = len(grid), len(grid[0])
+
+        def expand(row, col):
+            if 0 <= row < m and 0 <= col < n and grid[row][col] == '1':
+                grid[row][col] = '0'
+                for mr, mc in move:
+                    expand(row + mr, col + mc)
+
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == '1':
+                    islands += 1
+                    expand(i, j)
+        return islands

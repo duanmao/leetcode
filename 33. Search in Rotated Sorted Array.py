@@ -3,11 +3,11 @@ class Solution:
     def search(self, nums: List[int], target: int) -> int:
         low = 0
         high = len(nums) - 1
-        while (low <= high):
-            mid = int((low + high) / 2)
-            if (nums[mid] == target):
+        while low <= high:
+            mid = (low + high) // 2
+            if nums[mid] == target:
                 return mid
-            elif (nums[mid] < target):
+            elif nums[mid] < target:
                 # 若数组是正常的排序数组，这时的正常操作是low = mid + 1
                 # 因此只要判断因数组被移动而导致的不得不向左边查找的例外情况即可
                 # 而这种例外只出现在一种情境下：
@@ -23,7 +23,7 @@ class Solution:
                 # 因为若要用这两条来做判断，则必须再加上nums[low] > nums[high]来保证偏序关系
                 # 即 if (nums[mid] <= nums[high] and target >= nums[low] and nums[low] > nums[high])
                 # 因此，更建议使用严格的大于小于来做判断，即如下：
-                if (nums[mid] < nums[low] and target > nums[high]):
+                if nums[mid] < nums[low] and target > nums[high]:
                     high = mid - 1
                 else:
                     low = mid + 1
@@ -38,8 +38,23 @@ class Solution:
                 # 当然同时还必须保证low到high的范围是被移动过的，即nums[low] > nums[high]
                 # 但上述两个判断条件中已隐含此判断，所以不需要再作显式判断
                 # 另：大致同上
-                if (nums[mid] > nums[high] and target < nums[low]):
+                if nums[mid] > nums[high] and target < nums[low]:
                     low = mid + 1
                 else:
                     high = mid - 1
+        return -1
+
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        low, high = 0, len(nums) - 1
+        while low <= high:
+            mid = (low + high) // 2
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] < target:
+                if nums[mid] < nums[low] and nums[low] <= target: high = mid - 1
+                else: low = mid + 1
+            elif nums[mid] > target:
+                if nums[mid] > nums[high] and nums[high] >= target: low = mid + 1
+                else: high = mid - 1
         return -1
